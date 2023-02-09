@@ -22,7 +22,7 @@ const ViewMainInfo = styled.View`
   height: 100%;
   background-color: #292c30;
   margin: 10px;
-  borderradius: 10px;
+  border-radius: 10px;
 `;
 const ViewMainInfoHeader = styled.View`
   height: 50px;
