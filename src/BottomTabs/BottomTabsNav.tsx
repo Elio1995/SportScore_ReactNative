@@ -6,8 +6,18 @@ const Tab = createBottomTabNavigator();
 
 function BottomTabsNav() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#16181D',
+          height: 60,
+        },
+      }}>
+      <Tab.Screen
+        options={{headerShown: false}}
+        name="Soccer"
+        component={HomeScreen}
+      />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );

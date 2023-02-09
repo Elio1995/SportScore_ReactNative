@@ -3,7 +3,9 @@ import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Home from './src/Home';
-import DrawerNav from './src/Drawer/DrawerNav';
+import BottomTabsNav from './src/BottomTabs/BottomTabsNav';
+import {Provider} from 'react-redux';
+import {store} from './src/Redux/store';
 
 const Stack = createStackNavigator();
 function App() {
@@ -11,8 +13,8 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Drawer"
-          component={DrawerNav}
+          name="BottomTab"
+          component={BottomTabsNav}
           options={{headerShown: false}}
         />
         <Stack.Screen name="Home" component={Home} />
@@ -22,6 +24,10 @@ function App() {
 }
 
 function MainApp() {
-  return <App />;
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
 }
 export default MainApp;
