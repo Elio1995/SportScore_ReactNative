@@ -6,6 +6,7 @@ import Home from './src/Home';
 import BottomTabsNav from './src/BottomTabs/BottomTabsNav';
 import {Provider} from 'react-redux';
 import {store} from './src/Redux/store';
+import Teams from './src/components/Teams';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,7 @@ function App() {
           options={{headerShown: false}}
         />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Teams" component={Teams} />
       </Stack.Navigator>
     </NavigationContainer>
   );

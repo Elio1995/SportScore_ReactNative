@@ -53,22 +53,6 @@ const Container = () => {
           <TextStyle>12</TextStyle>
         </ViewMainHeader>
         <ViewMainInfo>
-          {/* <View
-            style={{
-              height: 'auto',
-              marginBottom: 10,
-              backgroundColor: '#292c30',
-              borderRadius: 10,
-            }}>
-            <ViewMainInfoHeader>
-              <TextStyle>World Cup</TextStyle>
-            </ViewMainInfoHeader>
-            <MatchMainInfos />
-            <MatchMainInfos />
-            <MatchMainInfos />
-            <MatchMainInfos />
-            <MatchMainInfos />
-          </View> */}
           <ScrollView
             style={{
               height: 'auto',

@@ -25,6 +25,30 @@ interface League {
   tennis_points: Number;
 }
 
+interface FootballTeam {
+  category_id: Number;
+  country: String;
+  country_code: String;
+  details: null;
+  flag: String;
+  foundation: null;
+  gender: String;
+  has_logo: Boolean;
+  has_sub: Boolean;
+  id: Number;
+  is_nationality: false;
+  logo: String;
+  manager_id: Number;
+  name: String;
+  name_code: String;
+  name_full: String;
+  name_short: String;
+  name_translations: {en: String};
+  slug: String;
+  sport_id: Number;
+  venue_id: Number;
+}
+
 export const endpoints = createApi({
   reducerPath: 'footscoreApi',
   baseQuery: fetchBaseQuery({
@@ -41,7 +65,14 @@ export const endpoints = createApi({
     getLeagues: builder.query<League[], any>({
       query: () => 'sports/1/leagues',
     }),
+    getFootballTeams: builder.query<FootballTeam[], any>({
+      query: () => 'sports/1/teams',
+    }),
   }),
 });
 
-export const {useLazyGetTeamsQuery, useLazyGetLeaguesQuery} = endpoints;
+export const {
+  useLazyGetTeamsQuery,
+  useLazyGetLeaguesQuery,
+  useLazyGetFootballTeamsQuery,
+} = endpoints;
