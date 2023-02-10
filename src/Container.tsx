@@ -1,8 +1,7 @@
 import React from 'react';
-import {View, ScrollView} from 'react-native';
+import {ScrollView} from 'react-native';
 import styled from 'styled-components/native';
 import LeagueMainInfos from './components/LeagueMainInfos';
-import MatchMainInfos from './components/MatchMainInfos';
 import SideContainer from './Container/SideContainer';
 
 const ViewContainer = styled.View`
@@ -27,12 +26,12 @@ const ViewMainInfo = styled.View`
   margin: 10px;
   border-radius: 10px;
 `;
-const ViewMainInfoHeader = styled.View`
-height:50px
-  background-color: #16181d;
-  padding: 10px;
-  border-radius: 10px;
-`;
+// const ViewMainInfoHeader = styled.View`
+// height:50px
+//   background-color: #16181d;
+//   padding: 10px;
+//   border-radius: 10px;
+// `;
 
 const TextStyle = styled.Text`
   color: white;

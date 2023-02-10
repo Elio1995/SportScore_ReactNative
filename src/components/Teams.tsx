@@ -1,12 +1,11 @@
-import React, {useEffect} from 'react';
-import {View, ScrollView, Text, TouchableOpacity, Image} from 'react-native';
-import {useLazyGetFootballTeamsQuery} from '../Redux/endpoints/endpoint';
+import React from 'react';
+import {View, Text} from 'react-native';
+
 import {FootballTeam} from '../types';
 
 const Teams = ({route}: any) => {
   const {teams} = route.params;
 
-  console.log('teamssss', {teams});
   return (
     <>
       {teams?.map((team: FootballTeam, index: any) => {
