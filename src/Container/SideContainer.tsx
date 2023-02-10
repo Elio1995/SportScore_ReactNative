@@ -21,8 +21,6 @@ const SideContainer = () => {
     getSports(undefined);
   }, []);
 
-  console.log('sports', result?.data?.data);
-
   const sports = result?.data?.data;
 
   return (
