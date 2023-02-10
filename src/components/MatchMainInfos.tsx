@@ -7,7 +7,7 @@ const MatchMainInfos = () => {
       style={{
         flexDirection: 'row',
         width: '100%',
-        paddingHorizontal: 15,
+        paddingHorizontal: 20,
         paddingVertical: 12,
         borderBottomWidth: 2,
         borderBottomColor: 'black',

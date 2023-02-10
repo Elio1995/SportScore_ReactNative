@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import styled from 'styled-components/native';
+import LeagueMainInfos from './components/LeagueMainInfos';
 import MatchMainInfos from './components/MatchMainInfos';
 import SideContainer from './Container/SideContainer';
 
@@ -52,7 +53,7 @@ const Container = () => {
           <TextStyle>12</TextStyle>
         </ViewMainHeader>
         <ViewMainInfo>
-          <View
+          {/* <View
             style={{
               height: 'auto',
               marginBottom: 10,
@@ -67,15 +68,15 @@ const Container = () => {
             <MatchMainInfos />
             <MatchMainInfos />
             <MatchMainInfos />
-          </View>
-          <View
+          </View> */}
+          <ScrollView
             style={{
-              height: '100%',
+              height: 'auto',
               backgroundColor: '#292c30',
               borderRadius: 10,
             }}>
-            <Text style={{color: 'white'}}>Leagueeeee</Text>
-          </View>
+            <LeagueMainInfos />
+          </ScrollView>
         </ViewMainInfo>
       </ViewMain>
     </ViewContainer>
