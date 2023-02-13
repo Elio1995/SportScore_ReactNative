@@ -18,11 +18,15 @@ const Container = () => {
   return (
     <ViewContainer>
       <SideContainer setMenuState={setMenuState} />
-      {menuState === 'football' && <FootballContainer />}
-      {menuState === 'basketball' && <BasketballContainer />}
-      {menuState === 'tennis' && <TennisContainer />}
-      {menuState === 'handball' && <HandballContainer />}
-      {menuState === 'volleyball' && <VolleyballContainer />}
+      {menuState === 'football' && <FootballContainer menuState={menuState} />}
+      {menuState === 'basketball' && (
+        <BasketballContainer menuState={menuState} />
+      )}
+      {menuState === 'tennis' && <TennisContainer menuState={menuState} />}
+      {menuState === 'handball' && <HandballContainer menuState={menuState} />}
+      {menuState === 'volleyball' && (
+        <VolleyballContainer menuState={menuState} />
+      )}
     </ViewContainer>
   );
 };

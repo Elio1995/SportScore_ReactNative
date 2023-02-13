@@ -69,7 +69,7 @@ const LeagueMainInfos = () => {
             </View>
             <View style={{width: 80, flexDirection: 'row', gap: 20}}>
               <Text style={{color: 'white', width: 20}}>
-                {selectedTeams(league?.host?.flag).length}
+                {selectedTeams(league?.host?.flag)?.length}
               </Text>
               <Text style={{color: 'white', width: 15}}>1</Text>
             </View>

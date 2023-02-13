@@ -2,6 +2,7 @@ import React from 'react';
 import {ScrollView, Text} from 'react-native';
 import styled from 'styled-components/native';
 import LeagueMainInfos from '../components/LeagueMainInfos';
+import HeaderMainContainer from './HeaderMainContainer';
 
 const ViewMain = styled.View`
   width: 85%;
@@ -27,12 +28,10 @@ const TextStyle = styled.Text`
   align-self: center;
 `;
 
-const BasketballContainer = () => {
+const BasketballContainer = (props: any) => {
   return (
     <ViewMain>
-      <ViewMainHeader>
-        <TextStyle>Basketball</TextStyle>
-      </ViewMainHeader>
+      <HeaderMainContainer menuState={props.menuState} />
       <ViewMainInfo>
         <ScrollView
           style={{
