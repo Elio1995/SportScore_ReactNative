@@ -1,8 +1,11 @@
-import React from 'react';
-import {ScrollView} from 'react-native';
+import React, {useState} from 'react';
 import styled from 'styled-components/native';
-import LeagueMainInfos from './components/LeagueMainInfos';
+import BasketballContainer from './Container/BasketballContainer';
+import FootballContainer from './Container/FootballContainer';
+import HandballContainer from './Container/HandballContainer';
 import SideContainer from './Container/SideContainer';
+import TennisContainer from './Container/TennisContainer';
+import VolleyballContainer from './Container/VolleyballContainer';
 
 const ViewContainer = styled.View`
   flex: 2;
@@ -10,52 +13,16 @@ const ViewContainer = styled.View`
   background-color: black;
 `;
 
-const ViewMain = styled.View`
-  width: 85%;
-  height: 100%;
-`;
-
-const ViewMainHeader = styled.View`
-  flex-direction: row;
-  height: 10%
-  background-color: #16181d;
-`;
-
-const ViewMainInfo = styled.View`
-  height: 90%;
-  margin: 10px;
-  border-radius: 10px;
-`;
-
-const TextStyle = styled.Text`
-  color: white;
-  font-weight: 700;
-  font-size: 20px;
-`;
-
 const Container = () => {
-  //Create a state where you can change ViewMain, when soccer, put the soccer page with events. when tennis put tennis etc.
+  const [menuState, setMenuState] = useState('football');
   return (
     <ViewContainer>
-      <SideContainer />
-
-      <ViewMain>
-        <ViewMainHeader>
-          <TextStyle>Soccer</TextStyle>
-          <TextStyle>23</TextStyle>
-          <TextStyle>12</TextStyle>
-        </ViewMainHeader>
-        <ViewMainInfo>
-          <ScrollView
-            style={{
-              height: 'auto',
-              backgroundColor: '#292c30',
-              borderRadius: 10,
-            }}>
-            <LeagueMainInfos />
-          </ScrollView>
-        </ViewMainInfo>
-      </ViewMain>
+      <SideContainer setMenuState={setMenuState} />
+      {menuState === 'football' && <FootballContainer />}
+      {menuState === 'basketball' && <BasketballContainer />}
+      {menuState === 'tennis' && <TennisContainer />}
+      {menuState === 'handball' && <HandballContainer />}
+      {menuState === 'volleyball' && <VolleyballContainer />}
     </ViewContainer>
   );
 };

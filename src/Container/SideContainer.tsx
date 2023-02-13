@@ -12,22 +12,37 @@ const ViewSide = styled.View`
   padding-top: 15px;
 `;
 
-const SideContainer = () => {
+const SideContainer = (props: any) => {
   return (
     <ViewSide>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          props.setMenuState('football');
+        }}>
         <Icon name="football" size={40} color="white" />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          props.setMenuState('basketball');
+        }}>
         <Icon name="basketball" size={40} color="#F88158" />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          props.setMenuState('tennis');
+        }}>
         <Icon name="tennisball" size={40} color="#ccff00" />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          props.setMenuState('handball');
+        }}>
         <MaterialIcons name="sports-handball" size={40} color="white" />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          props.setMenuState('volleyball');
+        }}>
         <MaterialIcons name="sports-volleyball" size={40} color="white" />
       </TouchableOpacity>
     </ViewSide>
