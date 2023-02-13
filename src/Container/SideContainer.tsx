@@ -1,39 +1,35 @@
-import React, {useEffect} from 'react';
-import {useLazyGetTeamsQuery} from '../Redux/endpoints/endpoint';
-import {Sport} from '../types';
+import React from 'react';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const ViewSide = styled.View`
   width: 15%;
   background-color: #16181d;
-`;
-
-const TextStyle = styled.Text`
-  color: white;
-  font-weight: 700;
-  font-size: 20px;
+  gap: 40px;
+  align-items: center;
+  padding-top: 15px;
 `;
 
 const SideContainer = () => {
-  const [getSports, result] = useLazyGetTeamsQuery();
-
-  useEffect(() => {
-    getSports(undefined);
-  }, []);
-
-  const sports = result?.data?.data;
-
   return (
     <ViewSide>
-      <Icon name="football" size={25} color="red" />
-      {sports?.map((sport: Sport, index: any) => {
-        return (
-          <TextStyle key={index} style={{color: 'white'}}>
-            {sport.name}
-          </TextStyle>
-        );
-      })}
+      <TouchableOpacity>
+        <Icon name="football" size={40} color="white" />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Icon name="basketball" size={40} color="#F88158" />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Icon name="tennisball" size={40} color="#ccff00" />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <MaterialIcons name="sports-handball" size={40} color="white" />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <MaterialIcons name="sports-volleyball" size={40} color="white" />
+      </TouchableOpacity>
     </ViewSide>
   );
 };
