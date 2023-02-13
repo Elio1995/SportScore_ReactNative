@@ -26,12 +26,6 @@ const ViewMainInfo = styled.View`
   margin: 10px;
   border-radius: 10px;
 `;
-// const ViewMainInfoHeader = styled.View`
-// height:50px
-//   background-color: #16181d;
-//   padding: 10px;
-//   border-radius: 10px;
-// `;
 
 const TextStyle = styled.Text`
   color: white;
