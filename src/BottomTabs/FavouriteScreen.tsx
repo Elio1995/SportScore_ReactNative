@@ -1,12 +1,12 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-const SettingsScreen = () => {
+const FavouriteScreen = () => {
   return (
     <View>
-      <Text>SettingsScreen</Text>
+      <Text>FavouriteScreen</Text>
     </View>
   );
 };
 
-export default SettingsScreen;
+export default FavouriteScreen;
