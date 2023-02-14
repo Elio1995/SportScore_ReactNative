@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unstable-nested-components */
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {View} from 'react-native';
 
@@ -32,7 +33,7 @@ function BottomTabsNav() {
             return (
               <>
                 <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                  <View style={[opacityFocusedStyle(focused)]}></View>
+                  <View style={[opacityFocusedStyle(focused)]} />
                   <Icon name="football" size={size} color={color} />
                 </View>
               </>
@@ -49,7 +50,7 @@ function BottomTabsNav() {
             return (
               <>
                 <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                  <View style={[opacityFocusedStyle(focused)]}></View>
+                  <View style={[opacityFocusedStyle(focused)]} />
                   <Icon name="tv-outline" size={size} color={color} />
                 </View>
               </>
@@ -66,7 +67,7 @@ function BottomTabsNav() {
             return (
               <>
                 <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                  <View style={[opacityFocusedStyle(focused)]}></View>
+                  <View style={[opacityFocusedStyle(focused)]} />
                   <Icon name="star-outline" size={size} color={color} />
                 </View>
               </>
@@ -84,7 +85,7 @@ function BottomTabsNav() {
             return (
               <>
                 <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                  <View style={[opacityFocusedStyle(focused)]}></View>
+                  <View style={[opacityFocusedStyle(focused)]} />
                   <Icon
                     name="person-circle-outline"
                     size={size}
