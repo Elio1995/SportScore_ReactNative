@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 
 import {FootballTeam} from '../types';
 
@@ -7,7 +7,7 @@ const Teams = ({route}: any) => {
   const {teams} = route.params;
 
   return (
-    <>
+    <ScrollView>
       {teams?.map((team: FootballTeam, index: any) => {
         return (
           <View
@@ -24,7 +24,7 @@ const Teams = ({route}: any) => {
           </View>
         );
       })}
-    </>
+    </ScrollView>
   );
 };
 
