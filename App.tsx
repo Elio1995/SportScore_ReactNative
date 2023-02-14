@@ -7,13 +7,14 @@ import BottomTabsNav from './src/BottomTabs/BottomTabsNav';
 import {Provider} from 'react-redux';
 import {store} from './src/Redux/store';
 import Teams from './src/components/Teams';
+import VideoPlayer from './src/screens/VideoPlayer';
 
 const Stack = createStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="BottomTab">
         <Stack.Screen
           name="BottomTab"
           component={BottomTabsNav}
@@ -21,6 +22,11 @@ function App() {
         />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Teams" component={Teams} />
+        <Stack.Screen
+          name="VideoPlayer"
+          options={{presentation: 'modal'}}
+          component={VideoPlayer}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

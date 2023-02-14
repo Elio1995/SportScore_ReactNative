@@ -1,9 +1,10 @@
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import React, {useEffect} from 'react';
 import {useLazyGetLiveEventsQuery} from '../Redux/endpoints/endpoint';
 import {EventsLive} from '../types';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components/native';
+import {useNavigation} from '@react-navigation/native';
 
 const ViewMainHeader = styled.View`
   flex-direction: row;
@@ -19,6 +20,7 @@ const TextStyle = styled.Text`
 `;
 
 const LiveScreen = () => {
+  const navigation = useNavigation();
   const [getLiveEvents, eventResult] = useLazyGetLiveEventsQuery();
 
   useEffect(() => {
@@ -67,9 +69,11 @@ const LiveScreen = () => {
                 <Text style={{color: 'white'}}>{event?.home_team?.name}</Text>
                 <Text style={{color: 'white'}}>{event?.away_team?.name}</Text>
               </View>
-              <View style={{width: 55, justifyContent: 'center'}}>
+              <TouchableOpacity
+                style={{width: 55, justifyContent: 'center'}}
+                onPress={() => navigation.navigate('VideoPlayer')}>
                 <Icon name="tv-outline" size={30} color="white" />
-              </View>
+              </TouchableOpacity>
               <View style={{width: 80}}>
                 <Text
                   style={{
