@@ -1,53 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-
-interface Sport {
-  id: Number;
-  name: String;
-  name_translations: {};
-}
-
-interface League {
-  end_date: Date;
-  facts: [];
-  has_logo: Boolean;
-  host: {};
-  id: Number;
-  logo: String;
-  most_count: 7;
-  name_translations: {};
-  priority: Number;
-  section: {};
-  section_id: Number;
-  slug: String;
-  sport: {};
-  sport_id: Number;
-  start_date: Date;
-  tennis_points: Number;
-}
-
-interface FootballTeam {
-  category_id: Number;
-  country: String;
-  country_code: String;
-  details: null;
-  flag: String;
-  foundation: null;
-  gender: String;
-  has_logo: Boolean;
-  has_sub: Boolean;
-  id: Number;
-  is_nationality: false;
-  logo: String;
-  manager_id: Number;
-  name: String;
-  name_code: String;
-  name_full: String;
-  name_short: String;
-  name_translations: {en: String};
-  slug: String;
-  sport_id: Number;
-  venue_id: Number;
-}
+import {EventsLive, FootballTeam, League, Sport} from '../../types';
 
 export const endpoints = createApi({
   reducerPath: 'footscoreApi',
@@ -68,6 +20,9 @@ export const endpoints = createApi({
     getFootballTeams: builder.query<FootballTeam[], any>({
       query: () => 'sports/1/teams',
     }),
+    getLiveEvents: builder.query<EventsLive[], any>({
+      query: () => 'events/live',
+    }),
   }),
 });
 
@@ -75,4 +30,5 @@ export const {
   useLazyGetTeamsQuery,
   useLazyGetLeaguesQuery,
   useLazyGetFootballTeamsQuery,
+  useLazyGetLiveEventsQuery,
 } = endpoints;

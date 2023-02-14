@@ -21,9 +21,6 @@ const LeagueMainInfos = () => {
   const footballTeams = teamResult?.data?.data;
   const leagues = leagueResult?.data?.data;
 
-  console.log('teams', footballTeams);
-  console.log('leagues', leagues);
-
   const selectedTeams = (leagueFlag: String) =>
     footballTeams?.filter((team: FootballTeam) => {
       const teamsByLeague = team.flag === leagueFlag;

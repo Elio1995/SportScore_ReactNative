@@ -11,6 +11,7 @@ const MatchMainInfos = () => {
         paddingVertical: 12,
         borderBottomWidth: 2,
         borderBottomColor: 'black',
+        backgroundColor: '#16181d',
       }}>
       <View style={{width: 40}}>
         <Text style={{color: 'white'}}>Star</Text>
