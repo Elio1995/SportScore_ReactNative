@@ -6,7 +6,7 @@ export const endpoints = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://sportscore1.p.rapidapi.com',
     headers: {
-      'X-RapidAPI-Key': '4cc1b989femsh61bfdfc65124ab4p1994b5jsne7006f0dbe7c',
+      'X-RapidAPI-Key': '82f3075388mshc3f883323500a8ep12ffd3jsn69497014d19e',
       'X-RapidAPI-Host': 'sportscore1.p.rapidapi.com',
     },
   }),
