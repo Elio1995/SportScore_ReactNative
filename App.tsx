@@ -24,7 +24,7 @@ function App() {
         <Stack.Screen name="Teams" component={Teams} />
         <Stack.Screen
           name="VideoPlayer"
-          options={{presentation: 'modal'}}
+          options={{presentation: 'modal', headerShown: false}}
           component={VideoPlayer}
         />
       </Stack.Navigator>

@@ -5,6 +5,7 @@ import {EventsLive} from '../types';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
+import Orientation from 'react-native-orientation-lockers';
 
 const ViewMainHeader = styled.View`
   flex-direction: row;
@@ -25,6 +26,7 @@ const LiveScreen = () => {
 
   useEffect(() => {
     getLiveEvents(undefined);
+    Orientation.lockToPortrait();
   }, []);
 
   const events = eventResult?.data?.data;
