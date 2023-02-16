@@ -1,5 +1,8 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {controls} from '../types';
+import CentralBar from './CentralBar';
+import ProgressBar from './ProgressBar';
 import TopBar from './TopBar';
 
 const Controls = ({
@@ -20,7 +23,7 @@ const Controls = ({
   setMute,
   handleLive,
   type,
-}: any) => {
+}: controls) => {
   return (
     <View style={[styles.controlsContainer]}>
       {error ? (
@@ -33,6 +36,25 @@ const Controls = ({
             fullScreen={fullScreen}
             setMute={setMute}
           />
+
+          <CentralBar
+            fullScreen={fullScreen}
+            onPlay={onPlay}
+            playing={playing}
+            isLoading={isLoading}
+            rewind={rewind}
+            forward={forward}
+          />
+          <ProgressBar
+            duration={duration}
+            currentTime={currentTime}
+            onSlidingStartSlider={onSlidingStart}
+            onSlidingCompleteSlider={onSlidingComplete}
+            fullScreen={fullScreen}
+            setFullScreen={setFullScreen}
+            handleLive={handleLive}
+            type={type}
+          />
         </>
       )}
     </View>
@@ -41,7 +63,7 @@ const Controls = ({
 
 export default Controls;
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   controlsContainer: {
     position: 'absolute',
     zIndex: 99,

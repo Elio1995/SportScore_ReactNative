@@ -10,14 +10,14 @@ import goBack from '../assets/goBack.png';
 import {useNavigation} from '@react-navigation/native';
 import Orientation from 'react-native-orientation-lockers';
 
-interface TopBarProps {
+type TopBar = {
   title: string;
   mute: boolean;
   setMute: React.Dispatch<React.SetStateAction<boolean>>;
   fullScreen: boolean;
-}
+};
 
-const TopBar = ({title, mute, setMute, fullScreen}: TopBarProps) => {
+const TopBar = ({title, mute, setMute, fullScreen}: TopBar) => {
   const navigation = useNavigation();
 
   return (

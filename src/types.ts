@@ -1,3 +1,5 @@
+import {GestureResponderEvent} from 'react-native';
+
 export type Sport = {
   id: Number;
   name: String;
@@ -95,3 +97,25 @@ export type EventsLive = {
   venue_id: Number;
   winner_code: Number;
 };
+
+export interface controls {
+  currentTime: number | any;
+  onPlay: (event: GestureResponderEvent) => void;
+  playing: boolean;
+  isLoading: boolean;
+  forward: (event: GestureResponderEvent) => void;
+  rewind: (event: GestureResponderEvent) => void;
+  duration: number | any;
+  onSlidingStart: (event: GestureResponderEvent) => void;
+  onSlidingComplete: (event: GestureResponderEvent) => void;
+  title: string;
+  error: string | null;
+  fullScreen: boolean;
+  setFullScreen: React.Dispatch<React.SetStateAction<boolean>> | any;
+  mute: boolean;
+  setMute: React.Dispatch<React.SetStateAction<boolean>>;
+  handleLive: Function | any;
+  type: string;
+  onSlidingStartSlider: (event: any) => void;
+  onSlidingCompleteSlider: (event: any) => void;
+}

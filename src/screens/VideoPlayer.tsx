@@ -120,7 +120,7 @@ const VideoPlayer = () => {
 
 export default VideoPlayer;
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     backgroundColor: 'black',
     width: '100%',

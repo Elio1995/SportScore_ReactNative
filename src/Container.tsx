@@ -13,6 +13,19 @@ const ViewContainer = styled.View`
   background-color: black;
 `;
 
+const options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': '82f3075388mshc3f883323500a8ep12ffd3jsn69497014d19e',
+    'X-RapidAPI-Host': 'sportscore1.p.rapidapi.com',
+  },
+};
+
+fetch('https://sportscore1.p.rapidapi.com/sports/1/teams?page=1', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+
 const Container = () => {
   const [menuState, setMenuState] = useState('football');
   return (
