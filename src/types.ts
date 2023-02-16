@@ -100,14 +100,15 @@ export type EventsLive = {
 
 export interface controls {
   currentTime: number | any;
+  setCurrentTime: (event: any) => void;
   onPlay: (event: GestureResponderEvent) => void;
   playing: boolean;
   isLoading: boolean;
-  forward: (event: GestureResponderEvent) => void;
-  rewind: (event: GestureResponderEvent) => void;
+  handleForward: (event: GestureResponderEvent) => void;
+  handleRewind: (event: GestureResponderEvent) => void;
   duration: number | any;
-  onSlidingStart: (event: GestureResponderEvent) => void;
-  onSlidingComplete: (event: GestureResponderEvent) => void;
+  // onSlidingStart: (event: GestureResponderEvent) => void;
+  // onSlidingComplete: (event: GestureResponderEvent) => void;
   title: string;
   error: string | null;
   fullScreen: boolean;

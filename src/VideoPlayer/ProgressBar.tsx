@@ -11,6 +11,7 @@ import showFullScreen from '../assets/fullScreen.png';
 
 type ProgressBarType = {
   currentTime: number | any;
+  setCurrentTime: (event: any) => void;
   duration: number | any;
   onSlidingStartSlider: (event: any) => void;
   onSlidingCompleteSlider: (event: any) => void;
@@ -22,6 +23,7 @@ type ProgressBarType = {
 
 const ProgressBar = ({
   currentTime,
+  setCurrentTime,
   duration,
   onSlidingStartSlider,
   onSlidingCompleteSlider,
@@ -48,6 +50,8 @@ const ProgressBar = ({
     }
   };
 
+  console.log('curr', currentTime);
+
   return (
     <View
       style={styles.wrapper}
@@ -64,7 +68,6 @@ const ProgressBar = ({
       </TouchableOpacity>
 
       <Text style={styles.duration}>{getTime(parseInt(currentTime))}</Text>
-
       <Slider
         style={{
           width: fullScreen ? '80%' : '60%',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {controls} from '../types';
 import CentralBar from './CentralBar';
@@ -7,14 +7,15 @@ import TopBar from './TopBar';
 
 const Controls = ({
   currentTime,
+  setCurrentTime,
   onPlay,
   playing,
   isLoading,
-  forward,
-  rewind,
+  handleForward,
+  handleRewind,
   duration,
-  onSlidingStart,
-  onSlidingComplete,
+  onSlidingStartSlider,
+  onSlidingCompleteSlider,
   title,
   error,
   fullScreen,
@@ -24,8 +25,14 @@ const Controls = ({
   handleLive,
   type,
 }: controls) => {
+  const [opacity, setOpacity] = useState(true);
+
   return (
-    <View style={[styles.controlsContainer]}>
+    <View
+      style={[styles.controlsContainer, {opacity: opacity ? 1 : 0}]}
+      onTouchStart={() => {
+        setOpacity(!opacity);
+      }}>
       {error ? (
         <Text style={styles.videoError}>{error.errorString}</Text>
       ) : (
@@ -42,14 +49,15 @@ const Controls = ({
             onPlay={onPlay}
             playing={playing}
             isLoading={isLoading}
-            rewind={rewind}
-            forward={forward}
+            handleRewind={handleRewind}
+            handleForward={handleForward}
           />
           <ProgressBar
             duration={duration}
             currentTime={currentTime}
-            onSlidingStartSlider={onSlidingStart}
-            onSlidingCompleteSlider={onSlidingComplete}
+            setCurrentTime={setCurrentTime}
+            onSlidingStartSlider={onSlidingStartSlider}
+            onSlidingCompleteSlider={onSlidingCompleteSlider}
             fullScreen={fullScreen}
             setFullScreen={setFullScreen}
             handleLive={handleLive}

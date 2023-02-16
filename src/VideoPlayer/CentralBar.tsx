@@ -21,8 +21,8 @@ type CentralBar = {
   onPlay: (event: GestureResponderEvent) => void;
   playing: boolean;
   fullScreen: boolean;
-  forward: (event: GestureResponderEvent) => void;
-  rewind: (event: GestureResponderEvent) => void;
+  handleForward: (event: GestureResponderEvent) => void;
+  handleRewind: (event: GestureResponderEvent) => void;
   isLoading: boolean;
 };
 
@@ -30,8 +30,8 @@ const CentralBar = ({
   onPlay,
   playing,
   fullScreen,
-  forward,
-  rewind,
+  handleForward,
+  handleRewind,
   isLoading,
 }: CentralBar) => {
   const centralbarPosition = {
@@ -46,7 +46,7 @@ const CentralBar = ({
       onTouchStart={e => {
         e.stopPropagation();
       }}>
-      <TouchableOpacity onPress={rewind}>
+      <TouchableOpacity onPress={handleRewind}>
         <FastImage
           style={styles.rewind}
           source={rewindIcon}
@@ -70,7 +70,7 @@ const CentralBar = ({
         </TouchableOpacity>
       )}
 
-      <TouchableOpacity onPress={forward}>
+      <TouchableOpacity onPress={handleForward}>
         <FastImage
           style={styles.forward}
           source={forwardIcon}

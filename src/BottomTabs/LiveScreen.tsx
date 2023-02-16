@@ -82,7 +82,7 @@ const LiveScreen = () => {
                     color: 'white',
                     alignSelf: 'flex-end',
                   }}>
-                  {event.home_score.current}:{event.away_score.current}
+                  {event?.home_score?.current}:{event?.away_score?.current}
                 </Text>
                 <Text style={{color: 'white', alignSelf: 'flex-end'}}>
                   {event.status_more}

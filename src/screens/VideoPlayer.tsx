@@ -6,25 +6,20 @@ import Video from 'react-native-video';
 import Controls from '../VideoPlayer/Controls';
 
 const VideoPlayer = () => {
+  const url =
+    'https://di-kzbhv8pw.vo.lswcdn.net/sportitalia/smil:sihd02.smil/playlist.m3u8';
+  const title = 'Sportitalia HD';
+  const type = 'Channel';
+
   const [play, setPlay] = useState(true);
   const [fullScreen, setFullScreen] = useState(true);
   const videoRef = useRef<any>();
+  const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [onVideoError, setOnVideoError] = useState<string | null>();
-  const [currentTime, setCurrentTime] = useState(0);
-  const [seekDuration, setSeekDuration] = useState();
+  const [seekableDuration, setSeekableDuration] = useState();
   const [mute, setMute] = useState(false);
-
-  useFocusEffect(
-    useCallback(() => {
-      if (fullScreen) {
-        Orientation.lockToLandscape();
-      } else {
-        Orientation.lockToPortrait();
-      }
-    }, [fullScreen]),
-  );
 
   const handlePlay = () => {
     setPlay(!play);
@@ -47,9 +42,19 @@ const VideoPlayer = () => {
     videoRef.current.seek(e);
   };
   const handleLive = () => {
-    videoRef.current.seek(seekDuration);
+    videoRef.current.seek(seekableDuration);
     setPlay(true);
   };
+
+  useFocusEffect(
+    useCallback(() => {
+      if (fullScreen) {
+        Orientation.lockToLandscape();
+      } else {
+        Orientation.lockToPortrait();
+      }
+    }, [fullScreen]),
+  );
 
   return (
     <View style={styles.container}>
@@ -57,7 +62,7 @@ const VideoPlayer = () => {
       <Video
         style={styles.video}
         source={{
-          uri: 'https://di-kzbhv8pw.vo.lswcdn.net/sportitalia/smil:sihd02.smil/playlist.m3u8',
+          uri: url,
         }}
         resizeMode={fullScreen ? 'cover' : 'contain'}
         controls={false}
@@ -67,12 +72,12 @@ const VideoPlayer = () => {
         ref={videoRef}
         onProgress={(e: {
           currentTime: React.SetStateAction<number>;
-          seekDuration: React.SetStateAction<undefined>;
+          seekableDuration: React.SetStateAction<undefined>;
         }) => {
           setCurrentTime(e.currentTime);
-          setSeekDuration(e.seekDuration);
+          setSeekableDuration(e.seekableDuration);
         }}
-        onLoad={(e: {duration: React.SetStateAction<number>}) => {
+        onLoad={(e: any) => {
           setIsLoading(false);
           setPlay(true);
           setDuration(e.duration);
@@ -98,21 +103,22 @@ const VideoPlayer = () => {
       <Controls
         onPlay={handlePlay}
         playing={play}
-        rewind={handleRewind}
-        forward={handleForward}
+        handleRewind={handleRewind}
+        handleForward={handleForward}
         isLoading={isLoading}
         currentTime={currentTime}
+        setCurrentTime={setCurrentTime}
         duration={duration > 0 ? duration : 0}
-        onSlidingStart={onSlidingCompleteSlider}
-        onSlidingComplete={onSlidingCompleteSlider}
-        title="Sportitalia HD"
+        title={title}
         error={onVideoError ? onVideoError : null}
         fullScreen={fullScreen}
         setFullScreen={setFullScreen}
         mute={mute}
         setMute={setMute}
         handleLive={handleLive}
-        type="Channel"
+        type={type}
+        onSlidingStartSlider={onSlidingCompleteSlider}
+        onSlidingCompleteSlider={onSlidingCompleteSlider}
       />
     </View>
   );
