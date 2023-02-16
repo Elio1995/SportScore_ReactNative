@@ -1,4 +1,10 @@
-import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
 import React, {useEffect} from 'react';
 import {useLazyGetLiveEventsQuery} from '../Redux/endpoints/endpoint';
 import {EventsLive} from '../types';
@@ -51,46 +57,70 @@ const LiveScreen = () => {
         </View>
       </ViewMainHeader>
       <ScrollView>
-        {footballLiveGames?.map((event: EventsLive, index: any) => {
-          return (
-            <View
-              key={index}
+        {eventResult.isLoading ? (
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <ActivityIndicator
               style={{
-                flexDirection: 'row',
-                width: '100%',
-                paddingHorizontal: 20,
-                paddingVertical: 12,
-                borderBottomWidth: 2,
-                borderBottomColor: 'black',
-                backgroundColor: '#16181d',
-              }}>
-              <View style={{width: 40, justifyContent: 'center'}}>
-                <Icon name="star-outline" size={20} color="white" />
-              </View>
-              <View style={{width: 180}}>
-                <Text style={{color: 'white'}}>{event?.home_team?.name}</Text>
-                <Text style={{color: 'white'}}>{event?.away_team?.name}</Text>
-              </View>
-              <TouchableOpacity
-                style={{width: 55, justifyContent: 'center'}}
-                onPress={() => navigation.navigate('VideoPlayer')}>
-                <Icon name="tv-outline" size={30} color="white" />
-              </TouchableOpacity>
-              <View style={{width: 80}}>
-                <Text
+                width: 70,
+                height: 70,
+              }}
+              size="large"
+              color="#ffffff"
+            />
+          </View>
+        ) : (
+          <>
+            {footballLiveGames?.map((event: EventsLive, index: any) => {
+              return (
+                <View
+                  key={index}
                   style={{
-                    color: 'white',
-                    alignSelf: 'flex-end',
+                    flexDirection: 'row',
+                    width: '100%',
+                    paddingHorizontal: 20,
+                    paddingVertical: 12,
+                    borderBottomWidth: 2,
+                    borderBottomColor: 'black',
+                    backgroundColor: '#16181d',
                   }}>
-                  {event?.home_score?.current}:{event?.away_score?.current}
-                </Text>
-                <Text style={{color: 'white', alignSelf: 'flex-end'}}>
-                  {event.status_more}
-                </Text>
-              </View>
-            </View>
-          );
-        })}
+                  <View style={{width: 40, justifyContent: 'center'}}>
+                    <Icon name="star-outline" size={20} color="white" />
+                  </View>
+                  <View style={{width: 180}}>
+                    <Text style={{color: 'white'}}>
+                      {event?.home_team?.name}
+                    </Text>
+                    <Text style={{color: 'white'}}>
+                      {event?.away_team?.name}
+                    </Text>
+                  </View>
+                  <TouchableOpacity
+                    style={{width: 55, justifyContent: 'center'}}
+                    onPress={() => navigation.navigate('VideoPlayer')}>
+                    <Icon name="tv-outline" size={30} color="white" />
+                  </TouchableOpacity>
+                  <View style={{width: 80}}>
+                    <Text
+                      style={{
+                        color: 'white',
+                        alignSelf: 'flex-end',
+                      }}>
+                      {event?.home_score?.current}:{event?.away_score?.current}
+                    </Text>
+                    <Text style={{color: 'white', alignSelf: 'flex-end'}}>
+                      {event.status_more}
+                    </Text>
+                  </View>
+                </View>
+              );
+            })}
+          </>
+        )}
       </ScrollView>
     </View>
   );
