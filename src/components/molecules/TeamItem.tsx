@@ -22,4 +22,8 @@ const TeamItem = ({team}: TeamItemProps) => {
   );
 };
 
-export default TeamItem;
+function teamPropsAreEqual(prevTeam: FootballTeam, nextTeam: FootballTeam) {
+  return prevTeam?.name === nextTeam?.name;
+}
+
+export default React.memo(TeamItem, teamPropsAreEqual);

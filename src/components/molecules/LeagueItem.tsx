@@ -69,4 +69,12 @@ const LeagueItem = ({league}: LeagueItemProps) => {
   );
 };
 
-export default LeagueItem;
+function leaguePropsAreEqual(prevLeague: League, nextLeague: League) {
+  return (
+    prevLeague?.host?.flag === nextLeague?.host?.flag &&
+    prevLeague?.logo === nextLeague?.logo &&
+    prevLeague?.name_translations?.en === nextLeague?.name_translations?.en
+  );
+}
+
+export default React.memo(LeagueItem, leaguePropsAreEqual);
