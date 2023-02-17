@@ -8,27 +8,31 @@ import {Provider} from 'react-redux';
 import {store} from './src/Redux/store';
 import Teams from './src/components/Teams';
 import VideoPlayer from './src/screens/VideoPlayer';
+import {StatusBar} from 'react-native';
 
 const Stack = createStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="BottomTab">
-        <Stack.Screen
-          name="BottomTab"
-          component={BottomTabsNav}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Teams" component={Teams} />
-        <Stack.Screen
-          name="VideoPlayer"
-          options={{presentation: 'modal', headerShown: false}}
-          component={VideoPlayer}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar backgroundColor="black" />
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="BottomTab">
+          <Stack.Screen
+            name="BottomTab"
+            component={BottomTabsNav}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Teams" component={Teams} />
+          <Stack.Screen
+            name="VideoPlayer"
+            options={{presentation: 'modal', headerShown: false}}
+            component={VideoPlayer}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 
