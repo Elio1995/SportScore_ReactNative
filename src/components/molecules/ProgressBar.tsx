@@ -3,11 +3,11 @@ import React from 'react';
 import FastImage from 'react-native-fast-image';
 import Slider from '@react-native-community/slider';
 //@ts-ignore
-import Live from '../assets/Live.png';
+import Live from '../../assets/Live.png';
 //@ts-ignore
-import exitFullScreen from '../assets/exitFullScreen.png';
+import exitFullScreen from '../../assets/exitFullScreen.png';
 //@ts-ignore
-import showFullScreen from '../assets/fullScreen.png';
+import showFullScreen from '../../assets/fullScreen.png';
 
 type ProgressBarType = {
   currentTime: number | any;
@@ -23,7 +23,6 @@ type ProgressBarType = {
 
 const ProgressBar = ({
   currentTime,
-  setCurrentTime,
   duration,
   onSlidingStartSlider,
   onSlidingCompleteSlider,

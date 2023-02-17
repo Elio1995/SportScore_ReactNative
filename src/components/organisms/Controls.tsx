@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {controls} from '../types';
-import CentralBar from './CentralBar';
-import ProgressBar from './ProgressBar';
-import TopBar from './TopBar';
+import {controls} from '../../types';
+import CentralBar from '../molecules/CentralBar';
+import ProgressBar from '../molecules/ProgressBar';
+import TopBar from '../molecules/TopBar';
 
 const Controls = ({
   currentTime,

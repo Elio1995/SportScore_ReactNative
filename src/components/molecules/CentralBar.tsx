@@ -6,16 +6,15 @@ import {
   GestureResponderEvent,
 } from 'react-native';
 import React from 'react';
-import {controls} from '../types';
 import FastImage from 'react-native-fast-image';
 //@ts-ignore
-import pause from '../assets/pause.png';
+import pause from '../../assets/pause.png';
 //@ts-ignore
-import play from '../assets/play.png';
+import play from '../../assets/play.png';
 //@ts-ignore
-import rewindIcon from '../assets/rewind.png';
+import rewindIcon from '../../assets/rewind.png';
 //@ts-ignore
-import forwardIcon from '../assets/forward.png';
+import forwardIcon from '../../assets/forward.png';
 
 type CentralBar = {
   onPlay: (event: GestureResponderEvent) => void;

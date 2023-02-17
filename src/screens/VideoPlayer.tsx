@@ -3,7 +3,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import Orientation from 'react-native-orientation-lockers';
 import {View, StyleSheet, GestureResponderEvent, StatusBar} from 'react-native';
 import Video from 'react-native-video';
-import Controls from '../VideoPlayer/Controls';
+import Controls from '../components/organisms/Controls';
 
 const VideoPlayer = () => {
   const url =

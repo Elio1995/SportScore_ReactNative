@@ -2,11 +2,11 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import FastImage from 'react-native-fast-image';
 //@ts-ignore
-import mutedVolume from '../assets/mutedVolume.png';
+import mutedVolume from '../../assets/mutedVolume.png';
 //@ts-ignore
-import volume from '../assets/volume.png';
+import volume from '../../assets/volume.png';
 //@ts-ignore
-import goBack from '../assets/goBack.png';
+import goBack from '../../assets/goBack.png';
 import {useNavigation} from '@react-navigation/native';
 import Orientation from 'react-native-orientation-lockers';
 

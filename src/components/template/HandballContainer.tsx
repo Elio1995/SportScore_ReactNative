@@ -1,8 +1,7 @@
 import React from 'react';
 import {ScrollView, Text} from 'react-native';
 import styled from 'styled-components/native';
-import LeagueMainInfos from '../components/LeagueMainInfos';
-import HeaderMainContainer from './HeaderMainContainer';
+import HeaderMainContainer from '../molecules/HeaderMainContainer';
 
 const ViewMain = styled.View`
   width: 85%;
@@ -28,7 +27,7 @@ const TextStyle = styled.Text`
   align-self: center;
 `;
 
-const BasketballContainer = (props: any) => {
+const HandballContainer = (props: any) => {
   return (
     <ViewMain>
       <HeaderMainContainer menuState={props.menuState} />
@@ -39,11 +38,11 @@ const BasketballContainer = (props: any) => {
             backgroundColor: '#292c30',
             borderRadius: 10,
           }}>
-          <TextStyle>Basketball Container</TextStyle>
+          <TextStyle>Handball Container</TextStyle>
         </ScrollView>
       </ViewMainInfo>
     </ViewMain>
   );
 };
 
-export default BasketballContainer;
+export default HandballContainer;

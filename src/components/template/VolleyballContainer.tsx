@@ -1,12 +1,17 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import {ScrollView, Text} from 'react-native';
 import styled from 'styled-components/native';
-import LeagueMainInfos from '../components/LeagueMainInfos';
-import HeaderMainContainer from './HeaderMainContainer';
+import HeaderMainContainer from '../molecules/HeaderMainContainer';
 
 const ViewMain = styled.View`
   width: 85%;
   height: 100%;
+`;
+
+const ViewMainHeader = styled.View`
+  flex-direction: row;
+  height: 10%
+  background-color: #16181d;
 `;
 
 const ViewMainInfo = styled.View`
@@ -15,7 +20,14 @@ const ViewMainInfo = styled.View`
   border-radius: 10px;
 `;
 
-const FootballContainer = (props: any) => {
+const TextStyle = styled.Text`
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  align-self: center;
+`;
+
+const VolleyballContainer = (props: any) => {
   return (
     <ViewMain>
       <HeaderMainContainer menuState={props.menuState} />
@@ -26,11 +38,11 @@ const FootballContainer = (props: any) => {
             backgroundColor: '#292c30',
             borderRadius: 10,
           }}>
-          <LeagueMainInfos />
+          <TextStyle>Volleyball Container</TextStyle>
         </ScrollView>
       </ViewMainInfo>
     </ViewMain>
   );
 };
 
-export default FootballContainer;
+export default VolleyballContainer;

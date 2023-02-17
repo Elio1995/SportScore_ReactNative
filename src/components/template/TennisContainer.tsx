@@ -1,7 +1,7 @@
 import React from 'react';
 import {ScrollView, Text} from 'react-native';
 import styled from 'styled-components/native';
-import HeaderMainContainer from './HeaderMainContainer';
+import HeaderMainContainer from '../molecules/HeaderMainContainer';
 
 const ViewMain = styled.View`
   width: 85%;
@@ -27,7 +27,7 @@ const TextStyle = styled.Text`
   align-self: center;
 `;
 
-const VolleyballContainer = (props: any) => {
+const TennisContainer = (props: any) => {
   return (
     <ViewMain>
       <HeaderMainContainer menuState={props.menuState} />
@@ -38,11 +38,11 @@ const VolleyballContainer = (props: any) => {
             backgroundColor: '#292c30',
             borderRadius: 10,
           }}>
-          <TextStyle>Volleyball Container</TextStyle>
+          <TextStyle>Tennis Container</TextStyle>
         </ScrollView>
       </ViewMainInfo>
     </ViewMain>
   );
 };
 
-export default VolleyballContainer;
+export default TennisContainer;

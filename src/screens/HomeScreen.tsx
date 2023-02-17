@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
-import BasketballContainer from './Container/BasketballContainer';
-import FootballContainer from './Container/FootballContainer';
-import HandballContainer from './Container/HandballContainer';
-import SideContainer from './Container/SideContainer';
-import TennisContainer from './Container/TennisContainer';
-import VolleyballContainer from './Container/VolleyballContainer';
+import BasketballContainer from '../components/template/BasketballContainer';
+import FootballContainer from '../components/template/FootballContainer';
+import HandballContainer from '../components/template/HandballContainer';
+import SideContainer from '../components/organisms/SideContainer';
+import TennisContainer from '../components/template/TennisContainer';
+import VolleyballContainer from '../components/template/VolleyballContainer';
 
 const ViewContainer = styled.View`
   flex: 2;
@@ -13,7 +13,7 @@ const ViewContainer = styled.View`
   background-color: black;
 `;
 
-const Container = () => {
+const HomeScreen = () => {
   const [menuState, setMenuState] = useState('football');
 
   return (
@@ -32,4 +32,4 @@ const Container = () => {
   );
 };
 
-export default Container;
+export default HomeScreen;
