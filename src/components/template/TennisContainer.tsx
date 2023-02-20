@@ -31,7 +31,7 @@ const TennisContainer = (props: any) => {
             backgroundColor: '#292c30',
             borderRadius: 10,
           }}>
-          {tennisLiveGames.length === 0 ? (
+          {tennisLiveGames?.length === 0 ? (
             <Text
               style={{
                 color: 'white',
@@ -42,8 +42,14 @@ const TennisContainer = (props: any) => {
               There is no tennis match on live.
             </Text>
           ) : (
-            tennisLiveGames.map((event: any, index: any) => {
-              return <SportsEvents key={index} event={event} />;
+            tennisLiveGames?.map((event: any, index: any) => {
+              return (
+                <SportsEvents
+                  key={index}
+                  event={event}
+                  addToFavorite={props.addToFavorite}
+                />
+              );
             })
           )}
         </ScrollView>

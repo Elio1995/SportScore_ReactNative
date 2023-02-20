@@ -45,7 +45,7 @@ const BasketballContainer = (props: any) => {
             backgroundColor: '#292c30',
             borderRadius: 10,
           }}>
-          {basketballLiveGames.length === 0 ? (
+          {basketballLiveGames?.length === 0 ? (
             <Text
               style={{
                 color: 'white',
@@ -56,7 +56,7 @@ const BasketballContainer = (props: any) => {
               There is no basketball match on live.
             </Text>
           ) : (
-            basketballLiveGames.map((event: any, index: any) => {
+            basketballLiveGames?.map((event: any, index: any) => {
               return <SportsEvents key={index} event={event} />;
             })
           )}

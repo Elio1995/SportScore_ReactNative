@@ -7,6 +7,9 @@ import FavouriteScreen from '../screens/FavouriteScreen';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import LiveScreen from '../screens/LiveScreen';
+import {useLazyGetLiveEventsQuery} from '../Redux/endpoints/endpoint';
+import {useEffect, useState} from 'react';
+import {EventsLive} from '../types';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,6 +17,29 @@ function BottomTabsNav() {
   const opacityFocusedStyle = (focused: boolean) => {
     return {opacity: focused ? 1 : 0};
   };
+
+  const [favourites, setFavourites] = useState<EventsLive[]>([]);
+  const [getLiveEvents, eventResult] = useLazyGetLiveEventsQuery();
+
+  useEffect(() => {
+    getLiveEvents(undefined);
+  }, []);
+
+  const events = eventResult?.data?.data;
+
+  const addToFavorite = (id: number) => {
+    const data = events.find((event: EventsLive) => event.id === id);
+    setFavourites([...favourites, data]);
+  };
+
+  const deleteToFavorite = (id: number) => {
+    const deletedFavourite = favourites?.filter(
+      (event: EventsLive) => event.id !== id,
+    );
+    setFavourites({favourites: deletedFavourite});
+  };
+
+  console.log('favourites', favourites);
 
   return (
     <Tab.Navigator
@@ -26,7 +52,13 @@ function BottomTabsNav() {
       }}>
       <Tab.Screen
         name="Soccer"
-        component={HomeScreen}
+        children={props => (
+          <HomeScreen
+            addToFavorite={addToFavorite}
+            events={events}
+            {...props}
+          />
+        )}
         options={{
           headerShown: false,
           tabBarIcon: ({focused, color, size}) => {
@@ -60,7 +92,13 @@ function BottomTabsNav() {
       />
       <Tab.Screen
         name="Favourite"
-        component={FavouriteScreen}
+        children={props => (
+          <FavouriteScreen
+            favourites={favourites}
+            deleteToFavorite={deleteToFavorite}
+            {...props}
+          />
+        )}
         options={{
           headerShown: false,
           tabBarIcon: ({focused, color, size}) => {

@@ -31,7 +31,7 @@ const HandballContainer = (props: any) => {
             backgroundColor: '#292c30',
             borderRadius: 10,
           }}>
-          {handballLiveGames.length === 0 ? (
+          {handballLiveGames?.length === 0 ? (
             <Text
               style={{
                 color: 'white',
@@ -42,7 +42,7 @@ const HandballContainer = (props: any) => {
               There is no handball match on live.
             </Text>
           ) : (
-            handballLiveGames.map((event: any, index: any) => {
+            handballLiveGames?.map((event: any, index: any) => {
               return <SportsEvents key={index} event={event} />;
             })
           )}

@@ -6,7 +6,6 @@ import HandballContainer from '../components/template/HandballContainer';
 import SideContainer from '../components/organisms/SideContainer';
 import TennisContainer from '../components/template/TennisContainer';
 import VolleyballContainer from '../components/template/VolleyballContainer';
-import {useLazyGetLiveEventsQuery} from '../Redux/endpoints/endpoint';
 
 const ViewContainer = styled.View`
   flex: 2;
@@ -14,31 +13,28 @@ const ViewContainer = styled.View`
   background-color: black;
 `;
 
-const HomeScreen = () => {
+const HomeScreen = (props: any) => {
   const [menuState, setMenuState] = useState('football');
-  const [getLiveEvents, eventResult] = useLazyGetLiveEventsQuery();
-
-  useEffect(() => {
-    getLiveEvents(undefined);
-  }, []);
-
-  const events = eventResult?.data?.data;
 
   return (
     <ViewContainer>
       <SideContainer setMenuState={setMenuState} />
       {menuState === 'football' && <FootballContainer menuState={menuState} />}
       {menuState === 'basketball' && (
-        <BasketballContainer menuState={menuState} events={events} />
+        <BasketballContainer menuState={menuState} events={props.events} />
       )}
       {menuState === 'tennis' && (
-        <TennisContainer menuState={menuState} events={events} />
+        <TennisContainer
+          menuState={menuState}
+          events={props.events}
+          addToFavorite={props.addToFavorite}
+        />
       )}
       {menuState === 'handball' && (
-        <HandballContainer menuState={menuState} events={events} />
+        <HandballContainer menuState={menuState} events={props.events} />
       )}
       {menuState === 'volleyball' && (
-        <VolleyballContainer menuState={menuState} events={events} />
+        <VolleyballContainer menuState={menuState} events={props.events} />
       )}
     </ViewContainer>
   );

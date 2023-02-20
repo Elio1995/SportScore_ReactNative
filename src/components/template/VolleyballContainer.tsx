@@ -16,13 +16,6 @@ const ViewMainInfo = styled.View`
   border-radius: 10px;
 `;
 
-const TextStyle = styled.Text`
-  color: white;
-  font-weight: 700;
-  font-size: 20px;
-  align-self: center;
-`;
-
 const VolleyballContainer = (props: any) => {
   const voleyballLiveGames = props.events?.filter((event: EventsLive) => {
     return event.sport.name === 'Voleyball';
@@ -38,7 +31,7 @@ const VolleyballContainer = (props: any) => {
             backgroundColor: '#292c30',
             borderRadius: 10,
           }}>
-          {voleyballLiveGames.length === 0 ? (
+          {voleyballLiveGames?.length === 0 ? (
             <Text
               style={{
                 color: 'white',
@@ -49,7 +42,7 @@ const VolleyballContainer = (props: any) => {
               There is no voleyball match on live.
             </Text>
           ) : (
-            voleyballLiveGames.map((event: any, index: any) => {
+            voleyballLiveGames?.map((event: any, index: any) => {
               return <SportsEvents key={index} event={event} />;
             })
           )}

@@ -14,7 +14,9 @@ const SportsEvents = (props: any) => {
         borderBottomColor: 'black',
         backgroundColor: '#16181d',
       }}>
-      <TouchableOpacity style={{width: 40, justifyContent: 'center'}}>
+      <TouchableOpacity
+        style={{width: 40, justifyContent: 'center'}}
+        onPress={() => props.addToFavorite(props.event?.id)}>
         <Icon name="star-outline" size={20} color="white" />
       </TouchableOpacity>
 
@@ -34,7 +36,7 @@ const SportsEvents = (props: any) => {
           {props.event?.home_score?.current}:{props.event?.away_score?.current}
         </Text>
         <Text style={{color: 'white', alignSelf: 'flex-end'}}>
-          {props.event.status_more}
+          {props.event?.status_more}
         </Text>
       </View>
     </View>
