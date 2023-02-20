@@ -46,7 +46,13 @@ const BasketballContainer = (props: any) => {
             borderRadius: 10,
           }}>
           {basketballLiveGames.length === 0 ? (
-            <Text style={{color: 'white'}}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 18,
+                alignSelf: 'center',
+                marginTop: 20,
+              }}>
               There is no basketball match on live.
             </Text>
           ) : (

@@ -32,7 +32,13 @@ const TennisContainer = (props: any) => {
             borderRadius: 10,
           }}>
           {tennisLiveGames.length === 0 ? (
-            <Text style={{color: 'white'}}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 18,
+                alignSelf: 'center',
+                marginTop: 20,
+              }}>
               There is no tennis match on live.
             </Text>
           ) : (

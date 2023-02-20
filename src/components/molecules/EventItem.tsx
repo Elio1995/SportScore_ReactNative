@@ -22,9 +22,9 @@ const EventItem = ({event}: EventItemProps) => {
         borderBottomColor: 'black',
         backgroundColor: '#16181d',
       }}>
-      <View style={{width: 40, justifyContent: 'center'}}>
+      <TouchableOpacity style={{width: 40, justifyContent: 'center'}}>
         <Icon name="star-outline" size={20} color="white" />
-      </View>
+      </TouchableOpacity>
       <View style={{width: 180}}>
         <Text style={{color: 'white'}}>{event?.home_team?.name}</Text>
         <Text style={{color: 'white'}}>{event?.away_team?.name}</Text>

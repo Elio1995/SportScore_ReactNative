@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const SportsEvents = (props: any) => {
@@ -14,9 +14,9 @@ const SportsEvents = (props: any) => {
         borderBottomColor: 'black',
         backgroundColor: '#16181d',
       }}>
-      <View style={{width: 40, justifyContent: 'center'}}>
+      <TouchableOpacity style={{width: 40, justifyContent: 'center'}}>
         <Icon name="star-outline" size={20} color="white" />
-      </View>
+      </TouchableOpacity>
 
       <View style={{width: 120}}>
         <Text style={{color: 'white'}}>{props.event?.home_team?.name}</Text>

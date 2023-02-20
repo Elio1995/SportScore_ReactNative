@@ -32,7 +32,13 @@ const HandballContainer = (props: any) => {
             borderRadius: 10,
           }}>
           {handballLiveGames.length === 0 ? (
-            <Text style={{color: 'white'}}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 18,
+                alignSelf: 'center',
+                marginTop: 20,
+              }}>
               There is no handball match on live.
             </Text>
           ) : (

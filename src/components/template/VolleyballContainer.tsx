@@ -39,7 +39,13 @@ const VolleyballContainer = (props: any) => {
             borderRadius: 10,
           }}>
           {voleyballLiveGames.length === 0 ? (
-            <Text style={{color: 'white'}}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 18,
+                alignSelf: 'center',
+                marginTop: 20,
+              }}>
               There is no voleyball match on live.
             </Text>
           ) : (
