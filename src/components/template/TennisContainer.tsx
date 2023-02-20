@@ -1,17 +1,13 @@
 import React from 'react';
 import {ScrollView, Text} from 'react-native';
 import styled from 'styled-components/native';
+import {EventsLive} from '../../types';
 import HeaderMainContainer from '../molecules/HeaderMainContainer';
+import SportsEvents from '../organisms/SportsEvents';
 
 const ViewMain = styled.View`
   width: 85%;
   height: 100%;
-`;
-
-const ViewMainHeader = styled.View`
-  flex-direction: row;
-  height: 10%
-  background-color: #16181d;
 `;
 
 const ViewMainInfo = styled.View`
@@ -20,14 +16,11 @@ const ViewMainInfo = styled.View`
   border-radius: 10px;
 `;
 
-const TextStyle = styled.Text`
-  color: white;
-  font-weight: 700;
-  font-size: 20px;
-  align-self: center;
-`;
-
 const TennisContainer = (props: any) => {
+  const tennisLiveGames = props.events?.filter((event: EventsLive) => {
+    return event.sport.name === 'Tennis';
+  });
+
   return (
     <ViewMain>
       <HeaderMainContainer menuState={props.menuState} />
@@ -38,7 +31,15 @@ const TennisContainer = (props: any) => {
             backgroundColor: '#292c30',
             borderRadius: 10,
           }}>
-          <TextStyle>Tennis Container</TextStyle>
+          {tennisLiveGames.length === 0 ? (
+            <Text style={{color: 'white'}}>
+              There is no tennis match on live.
+            </Text>
+          ) : (
+            tennisLiveGames.map((event: any, index: any) => {
+              return <SportsEvents key={index} event={event} />;
+            })
+          )}
         </ScrollView>
       </ViewMainInfo>
     </ViewMain>

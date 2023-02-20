@@ -1,8 +1,10 @@
 import React from 'react';
-import {ScrollView, Text} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import styled from 'styled-components/native';
 import LeagueMainInfos from '../organisms/LeagueMainInfos';
 import HeaderMainContainer from '../molecules/HeaderMainContainer';
+import SportsEvents from '../organisms/SportsEvents';
+import {EventsLive} from '../../types';
 
 const ViewMain = styled.View`
   width: 85%;
@@ -29,6 +31,10 @@ const TextStyle = styled.Text`
 `;
 
 const BasketballContainer = (props: any) => {
+  const basketballLiveGames = props.events?.filter((event: EventsLive) => {
+    return event.sport.name === 'Basketball';
+  });
+
   return (
     <ViewMain>
       <HeaderMainContainer menuState={props.menuState} />
@@ -39,7 +45,15 @@ const BasketballContainer = (props: any) => {
             backgroundColor: '#292c30',
             borderRadius: 10,
           }}>
-          <TextStyle>Basketball Container</TextStyle>
+          {basketballLiveGames.length === 0 ? (
+            <Text style={{color: 'white'}}>
+              There is no basketball match on live.
+            </Text>
+          ) : (
+            basketballLiveGames.map((event: any, index: any) => {
+              return <SportsEvents key={index} event={event} />;
+            })
+          )}
         </ScrollView>
       </ViewMainInfo>
     </ViewMain>
