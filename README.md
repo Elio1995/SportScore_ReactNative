@@ -1,6 +1,14 @@
-# footscoreApp
+# SportScore APP
 
+This project is done by ReactNative + Typescript + StyledComponents. Refactoring made based on Atomic Design method.
 
+### How to view the code?
+- open footscore branch
+- enjoy the code
+
+### Useful Resources
+- [Stackoverflow](https://stackoverflow.com/)
+- [MDN Web docs](https://developer.mozilla.org/en-US/)
 
 ## Getting started
 
