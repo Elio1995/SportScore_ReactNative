@@ -4,10 +4,10 @@ import {EventsLive, FootballTeam, League, Sport} from '../../types';
 export const endpoints = createApi({
   reducerPath: 'footscoreApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://sportscore1.p.rapidapi.com',
+    baseUrl: process.env.BASE_URL,
     headers: {
-      'X-RapidAPI-Key': '82f3075388mshc3f883323500a8ep12ffd3jsn69497014d19e',
-      'X-RapidAPI-Host': 'sportscore1.p.rapidapi.com',
+      'X-RapidAPI-Key': process.env.API_KEY,
+      'X-RapidAPI-Host': process.env.API_HOST,
     },
   }),
   endpoints: builder => ({
